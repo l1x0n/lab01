@@ -1,2 +1,1 @@
-itihjirjtijrth
-nriyuiinhr
+Лабораторка 1
