@@ -1,4 +1,5 @@
 import json
+import os
 
 def loadData():
     if not os.path.exists("db.json"):
@@ -18,4 +19,9 @@ def saveData(data):
     with open("db.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
+data = loadData()
 
+number = int(input("Введите число: "))
+data.append(number)
+
+saveData(data)
