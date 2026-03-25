@@ -21,3 +21,14 @@ jobs:
           python-version: "3.12"
       - run: pip install pytest
       - run: pytest
+
+deploy:
+  needs: test
+  if: github.ref == 'refs/heads/mian'
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout code 
+      uses: actions/checkout@v4
+
+    - name: Build Docker Image
+      run: docker build -t my-app:${{ github.sha }} .
